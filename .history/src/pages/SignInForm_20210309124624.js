@@ -1,5 +1,6 @@
-import React, { useState}  from 'react';
+import React, { useState, Component }  from 'react';
 import { useOktaAuth } from '@okta/okta-react';
+import { withOktaAuth } from '@okta/okta-react';
 
 const SignInForm = () => {
     const { oktaAuth } = useOktaAuth();

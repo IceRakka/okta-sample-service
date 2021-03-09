@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import SignInForm from './SignInForm';
 import { useOktaAuth } from '@okta/okta-react';
+import { withOktaAuth } from '@okta/okta-react';
 
 const SignIn = () => {
   const { authState } = useOktaAuth();
