@@ -23,5 +23,7 @@
 hs_err_pid*
 node_modules
 
+# auto-generated file from IDE
 .history/*
 .idea/*
+.vscode/*
