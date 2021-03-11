@@ -17,7 +17,7 @@ const AppWithRouterAccess = () => {
     clientId: '0oa7m8hxvShDZCRBv5d6',
     redirectUri: window.location.origin + '/login/callback',
     onAuthRequired: onAuthRequired,
-    pkce: false
+    pkce: false     // implicit
   });
 
   return (
