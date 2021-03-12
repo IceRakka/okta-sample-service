@@ -22,10 +22,10 @@ const AppWithRouterAccess = () => {
 
   return (
     <Security oktaAuth={oktaAuth}>
-      <Route path='/' exact={true} component={Home} />
-      <SecureRoute path='/protected' component={Protected} />
-      <Route path='/login' render={() => <SignIn />} />
-      <Route path='/login/callback' component={LoginCallback} />
+        <Route path='/' exact={true} component={Home} />
+        <SecureRoute path='/protected' component={Protected} />
+        <Route path='/login' render={() => <SignIn />} />
+        <Route path='/login/callback' component={LoginCallback} />
     </Security>
   );
 };

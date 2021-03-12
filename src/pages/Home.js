@@ -5,7 +5,6 @@ import { useOktaAuth } from '@okta/okta-react';
 const Home = () => {
   const { authState, oktaAuth } = useOktaAuth();
   const history = useHistory();
-
   if (authState.isPending) {
     return <div>Loading...</div>;
   }
@@ -23,12 +22,3 @@ const Home = () => {
   );
 };
 export default Home;
-
-// import React from 'react';
-// import {
-//   Typography,
-// } from '@material-ui/core';
-
-// export default () => (
-//   <Typography variant="h4">Welcome Home!</Typography>
-// );

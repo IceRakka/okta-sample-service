@@ -9,6 +9,7 @@ const SignIn = () => {
   if (authState.isPending) {
     return <div>Loading...</div>;
   }
+
   return authState.isAuthenticated ?
     <Redirect to={{ pathname: '/' }}/> :
     <SignInForm />;
