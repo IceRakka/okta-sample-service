@@ -9,7 +9,7 @@ export default withOktaAuth(class QuestionForm extends Component {
       sessionToken: null,
       username: '',
       password: '',
-      answer: 'blue',
+      answer: '',
       question: 'default question'
     };
 
@@ -19,19 +19,24 @@ export default withOktaAuth(class QuestionForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.oktaAuth.signIn({
-      username: this.props.data.username,
-      password: this.props.data.password
-    })
-    .then(res => {
-      const sessionToken = res.sessionToken;
-      this.setState(
-        { sessionToken },
-        // sessionToken is a one-use token, so make sure this is only called once
-        () => this.props.oktaAuth.signInWithRedirect({sessionToken})
-      );
-    })
-    .catch(err => console.log('Found an error', err));
+
+    if (this.state.answer === users.get(this.props.data.username)['answer']) {
+      this.props.oktaAuth.signIn({
+        username: this.props.data.username,
+        password: this.props.data.password
+      })
+      .then(res => {
+        const sessionToken = res.sessionToken;
+        this.setState(
+          { sessionToken },
+          // sessionToken is a one-use token, so make sure this is only called once
+          () => this.props.oktaAuth.signInWithRedirect({sessionToken})
+        );
+      })
+      .catch(err => console.log('Found an error', err));
+    } else {
+      console.error('Your username/password/answer might be wrong.')
+    }
   }
 
   handleAnswerChange(e) {
